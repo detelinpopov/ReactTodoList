@@ -15,8 +15,10 @@ function Sidebar({ displayActiveElement }) {
         event.stopPropagation();
         const updatedList = todoItems.filter((item) => item.id !== id);
         setItems(updatedList);
-        setActiveId("");
-        displayActiveElement("");
+        if (id === activeId) {
+            setActiveId("");
+            displayActiveElement("");
+        }
     };
 
     return (
