@@ -10,12 +10,19 @@ function Sidebar({ displayActiveElement }) {
         displayActiveElement(item.additionalDetails);
         setActiveId(item.id);
     }
-  
-    function removeToDoItem(id) {
+
+    // function removeToDoItem(id, event) {
+    //     const updatedList = todoItems.filter((item) => item.id !== id);
+    //     setItems(updatedList);         
+    //     displayActiveElement("");
+    // }
+
+    const removeToDoItem = (event, id) => {
+        event.stopPropagation();
         const updatedList = todoItems.filter((item) => item.id !== id);
-        setItems(updatedList);         
+        setItems(updatedList);
         displayActiveElement("");
-    }
+    };
 
     return (
         <div>
@@ -26,7 +33,7 @@ function Sidebar({ displayActiveElement }) {
                             {item.heading}
                             <button
                                 className='delete-button'
-                                onClick={() => removeToDoItem(item.id)}>
+                                onClick={(event) => removeToDoItem(event, item.id)}>
                                 X
                             </button>
                         </li>
