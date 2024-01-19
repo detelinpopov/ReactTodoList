@@ -11,12 +11,6 @@ function Sidebar({ displayActiveElement }) {
         setActiveId(item.id);
     }
 
-    // function removeToDoItem(id, event) {
-    //     const updatedList = todoItems.filter((item) => item.id !== id);
-    //     setItems(updatedList);         
-    //     displayActiveElement("");
-    // }
-
     const removeToDoItem = (event, id) => {
         event.stopPropagation();
         const updatedList = todoItems.filter((item) => item.id !== id);
