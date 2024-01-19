@@ -11,7 +11,7 @@ function Sidebar({ displayActiveElement }) {
         setActiveId(item.id);
     }
 
-    const removeToDoItem = (event, id) => {
+    const removeItem = (event, id) => {
         event.stopPropagation();
         const updatedList = todoItems.filter((item) => item.id !== id);
         setItems(updatedList);
@@ -28,7 +28,7 @@ function Sidebar({ displayActiveElement }) {
                             {item.heading}
                             <button
                                 className='delete-button'
-                                onClick={(event) => removeToDoItem(event, item.id)}>
+                                onClick={(event) => removeItem(event, item.id)}>
                                 X
                             </button>
                         </li>
